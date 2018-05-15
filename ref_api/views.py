@@ -17,7 +17,7 @@ def get_sequence_by_id(request, trunc512_id):
     if 'HTTP_RANGE' not in request.META and request.GET == {}:
         return HttpResponse(
             chromosome.sequence,
-            content_type='text/vnd.ga4gh.seq.v1.0.0+plain',
+            content_type='text/vnd.ga4gh.seq.v1.0.0+plain; charset=us-ascii',
             status=200)
 
     if 'HTTP_RANGE' in request.META and request.GET != {}:
@@ -51,7 +51,7 @@ def get_sequence_by_id(request, trunc512_id):
                 else:
                     return HttpResponse(
                         chromosome.sequence[start:chromosome.size] + chromosome.sequence[0:end],
-                        content_type='text/vnd.ga4gh.seq.v1.0.0+plain',
+                        content_type='text/vnd.ga4gh.seq.v1.0.0+plain; charset=us-ascii',
                         status=200)
         if start < end:
             return HttpResponse(
