@@ -15,7 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-
+from ref_api.views import get_sequence_by_id
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path(
+        'sequence/<slug:trunc512_id>/',
+        get_sequence_by_id, name='get_sequence_by_id'),
 ]
