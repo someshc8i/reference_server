@@ -17,7 +17,7 @@ def get_sequence_by_id(request, trunc512_id):
     if 'HTTP_RANGE' not in request.META and request.GET == {}:
         return HttpResponse(
             chromosome.sequence,
-            content_type=' text/vnd.ga4gh.seq.v1.0.0+plain',
+            content_type='text/vnd.ga4gh.seq.v1.0.0+plain',
             status=200)
 
     if 'HTTP_RANGE' in request.META and request.GET != {}:
@@ -51,13 +51,41 @@ def get_sequence_by_id(request, trunc512_id):
                 else:
                     return HttpResponse(
                         chromosome.sequence[start:chromosome.size] + chromosome.sequence[0:end],
-                        content_type=' text/vnd.ga4gh.seq.v1.0.0+plain',
+                        content_type='text/vnd.ga4gh.seq.v1.0.0+plain',
                         status=200)
         if start < end:
             return HttpResponse(
                 chromosome.sequence[start:end],
                 content_type='text/vnd.ga4gh.seq.v1.0.0+plain; charset=us-ascii',
                 status=200)
+
+    if 'HTTP_RANGE' in request.META:
+        range_head = request.META['HTTP_RANGE']
+        if range_head[0:5] != 'bytes':
+            return HttpResponse(
+                'Invalid unit in Range, use bytes',
+                status=400)
+        else:
+            if range_head[5] != '=':
+                return HttpResponse(
+                    'Invalid format in Range',
+                    status=400)
+            else:
+                x, y = range_head[6:].split('-')
+                x = int(x)
+                y = int(y)
+                if x >= chromosome.size or y >= chromosome.size:
+                    return HttpResponse(
+                        'Range out of bounds',
+                        status=400)
+                if x > y:
+                    return HttpResponse(
+                        'Can not process circular chromosomes using Range',
+                        status=400)
+                return HttpResponse(
+                    chromosome.sequence[x:y+1],
+                    content_type='text/vnd.ga4gh.seq.v1.0.0+plain; charset=us-ascii',
+                    status=206)
 
     return HttpResponse(
         'Kindly review your request. Something went wrong',
