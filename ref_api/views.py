@@ -1,8 +1,8 @@
 from django.http import HttpResponse
 from ref_api.models import Chromosome
 
-SUPPORTED_ENCODINGS = ['text/plain']
-CIRCULAR_CHROMOSOME_SUPPORT = True
+SUPPORTED_ENCODINGS = ['text/plain', 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8']
+CIRCULAR_CHROMOSOME_SUPPORT = False
 
 
 def get_sequence_by_id(request, trunc512_id):
@@ -10,8 +10,7 @@ def get_sequence_by_id(request, trunc512_id):
         return HttpResponse('ID does not exist', status=404)
 
     chromosome = Chromosome.objects.get(trunc512=trunc512_id)
-
-    if request.META['HTTP_ACCEPT'] not in SUPPORTED_ENCODINGS:
+    if 'HTTP_ACCEPT' in request.META and request.META['HTTP_ACCEPT'] not in SUPPORTED_ENCODINGS:
         return HttpResponse('Encoding not supported by the server', status=415)
 
     if 'HTTP_RANGE' not in request.META and request.GET == {}:

@@ -1,0 +1,12 @@
+[
+  "test_first.py::test_errors_start_end_queries_NC[?stat=10&ed=67-400]",
+  "test_first.py::test_errors_start_end_queries_NC[?ed=67-400]",
+  "test_first.py::test_errors_start_end_queries_NC[?start=67-400]",
+  "test_first.py::test_errors_start_end_queries_NC[?start=10&end=5-501]",
+  "test_first.py::test_errors_start_end_queries_NC[?start=4-400]",
+  "test_first.py::test_errors_start_end_queries_VI[?stat=10&ed=67-400]",
+  "test_first.py::test_errors_start_end_queries_VI[?ed=67-400]",
+  "test_first.py::test_errors_start_end_queries_VI[?start=67-400]",
+  "test_first.py::test_errors_start_end_queries_VI[?start=10&end=5-501]",
+  "test_first.py::test_errors_start_end_queries_VI[?start-400]"
+]
