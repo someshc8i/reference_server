@@ -1,14 +1,13 @@
 import pytest
-from utils import get_chr_obj
+from utils import get_seq_obj
 
 
 @pytest.fixture(scope='session')
 def data():
-    data = {
-        "I": get_chr_obj("I"),
-        "VI": get_chr_obj("VI"),
-        "NC": get_chr_obj("NC")
-    }
+    data = []
+    data.append(get_seq_obj("I"))
+    data.append(get_seq_obj("VI"))
+    data.append(get_seq_obj("NC"))
     return data
 
 
@@ -18,4 +17,4 @@ def pytest_addoption(parser):
 
 @pytest.fixture(scope='session')
 def server(request):
-    return request.config.getoption("--server")
+    return 'http://' + request.config.getoption("--server")

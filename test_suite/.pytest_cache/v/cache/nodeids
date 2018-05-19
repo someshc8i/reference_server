@@ -1,12 +1,11 @@
 [
-  "test_first.py::test_errors_start_end_queries_NC[?stat=10&ed=67-400]",
-  "test_first.py::test_errors_start_end_queries_NC[?ed=67-400]",
-  "test_first.py::test_errors_start_end_queries_NC[?start=67-400]",
-  "test_first.py::test_errors_start_end_queries_NC[?start=10&end=5-501]",
-  "test_first.py::test_errors_start_end_queries_NC[?start=4-400]",
-  "test_first.py::test_errors_start_end_queries_VI[?stat=10&ed=67-400]",
-  "test_first.py::test_errors_start_end_queries_VI[?ed=67-400]",
-  "test_first.py::test_errors_start_end_queries_VI[?start=67-400]",
-  "test_first.py::test_errors_start_end_queries_VI[?start=10&end=5-501]",
-  "test_first.py::test_errors_start_end_queries_VI[?start-400]"
+  "test_sequence_api/test_non_ranged_success.py::test_non_ranged_success",
+  "test_sequence_api/test_non_ranged_success.py::test_ranged_errors[?stat=10&ed=67-400]",
+  "test_sequence_api/test_non_ranged_success.py::test_ranged_errors[?ed=67-400]",
+  "test_sequence_api/test_non_ranged_success.py::test_ranged_errors[?start=67-400]",
+  "test_sequence_api/test_non_ranged_success.py::test_ranged_errors[?start=10&end=5-501]",
+  "test_sequence_api/test_non_ranged_success.py::test_ranged_errors[?start=4-400]",
+  "test_sequence_api/test_non_ranged_success.py::test_non_ranged_headers[header_input0-206]",
+  "test_sequence_api/test_non_ranged_success.py::test_non_ranged_headers[header_input1-200]",
+  "test_sequence_api/test_non_ranged_success.py::test_non_ranged_headers[header_input2-200]"
 ]
