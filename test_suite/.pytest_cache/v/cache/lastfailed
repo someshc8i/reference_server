@@ -12,6 +12,16 @@
   "test_first.py::test_non_ranged_queries": true,
   "test_first.py::test_ranged_queries_NC[?end=67-400]": true,
   "test_first.py::test_ranged_queries_NC[start=67-400]": true,
+  "test_sequence_api/test_non_ranged.py::test_headers[header_input0-200]": true,
+  "test_sequence_api/test_non_ranged.py::test_headers[header_input1-200]": true,
+  "test_sequence_api/test_non_ranged.py::test_headers[header_input2-200]": true,
+  "test_sequence_api/test_non_ranged.py::test_non_ranged_IDs[-200]": true,
+  "test_sequence_api/test_non_ranged.py::test_non_ranged_headers[header_input0-206]": true,
+  "test_sequence_api/test_non_ranged.py::test_non_ranged_success": true,
+  "test_sequence_api/test_non_ranged.py::test_something": true,
+  "test_sequence_api/test_non_ranged.py::test_valid_sequences": true,
+  "test_sequence_api/test_non_ranged.py::test_valid_sequences_md5": true,
+  "test_sequence_api/test_non_ranged.py::test_valid_sequences_sha512": true,
   "test_sequence_api/test_non_ranged_success.py::test_non_ranged_headers[header_input0-200]": true,
   "test_sequence_api/test_non_ranged_success.py::test_non_ranged_success": true
 }
